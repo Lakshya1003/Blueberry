@@ -1,0 +1,8 @@
+pvporcupine == 1.9.5
+pyaudio
+pyttsx3
+speech_recognition
+eel
+time
+struct
+playsound
