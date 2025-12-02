@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servo Controller Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Using FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="dashboard-container">
+        <header class="glass-panel header">
+            <h1><i class="fa-solid fa-robot"></i> Servo Controller</h1>
+            <div class="status-indicator" id="connectionStatus">
+                <span class="status-dot"></span>
+                <span class="status-text">Disconnected</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="control-panel glass-panel">
+                <h2>Movement Control</h2>
+                <div class="d-pad">
+                    <div class="d-pad-row">
+                        <button class="control-btn" id="btn-forward" data-command="FORWARD">
+                            <i class="fa-solid fa-chevron-up"></i>
+                        </button>
+                    </div>
+                    <div class="d-pad-row middle">
+                        <button class="control-btn" id="btn-left" data-command="LEFT">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <div class="center-piece">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <button class="control-btn" id="btn-right" data-command="RIGHT">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="d-pad-row">
+                        <button class="control-btn" id="btn-backward" data-command="BACKWARD">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="log-panel glass-panel">
+                <div class="log-header">
+                    <h2>System Logs</h2>
+                    <button id="clear-logs" class="icon-btn" title="Clear Logs"><i class="fa-solid fa-trash"></i></button>
+                </div>
+                <div class="log-content" id="log-container">
+                    <div class="log-entry system">System initialized... Waiting for connection.</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
