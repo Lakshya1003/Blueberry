@@ -21,6 +21,7 @@
     <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
 
     <!-- Application Scripts -->
     <script src="three-scene.js" defer></script>
@@ -28,291 +29,263 @@
 </head>
 
 <body>
+    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+
     <nav class="glass-nav">
         <div class="logo">PROJECT BLUEBERRY</div>
         <div class="nav-links">
             <a href="#vision">Vision</a>
-            <a href="#capabilities">Capabilities</a>
-            <a href="#roadmap">Roadmap</a>
+            <a href="#evolution">Evolution</a>
+            <a href="#tech">Technology</a>
+            <a href="#telemetry">Telemetry</a>
             <a href="#team">Team</a>
-            <a href="#demo" class="cta-small">Live Demo</a>
         </div>
     </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="line">Project</span>
-                    <span class="line">Blueberry</span>
-                </h1>
-                <p class="hero-subtitle">Autonomous Robotics for Disaster Response</p>
-                <p class="hero-summary">An intelligent, self-reliant system designed to navigate and map complex
-                    disaster zones during total blackouts.</p>
-                <div class="hero-cta-group">
-                    <a href="#roadmap" class="btn btn-primary">View Roadmap</a>
-                    <a href="#demo" class="btn btn-secondary">Live Demo / Map</a>
-                </div>
-            </div>
-            <div class="hero-visual" id="hero-3d-container">
-                <!-- Three.js Canvas will be injected here -->
-            </div>
-        </section>
-
-        <!-- Problem Statement -->
-        <section id="problem" class="section-padding">
-            <h2 class="section-heading">The Challenge</h2>
-            <div class="card-grid">
-                <div class="card tilt-card">
-                    <div class="card-icon">👁️</div>
-                    <h3>Zero Visibility</h3>
-                    <p>Navigating in smoke, dust, and total darkness where traditional cameras fail.</p>
-                </div>
-                <div class="card tilt-card">
-                    <div class="card-icon">⚠️</div>
-                    <h3>Unstable Environments</h3>
-                    <p>Unpredictable terrain requiring adaptive mobility and robust hardware.</p>
-                </div>
-                <div class="card tilt-card">
-                    <div class="card-icon">⏱️</div>
-                    <h3>Time-Critical</h3>
-                    <p>Rapid deployment and mapping needed when every second counts for rescue.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Vision -->
-        <section id="vision" class="section-padding vision-section">
-            <div class="vision-content">
-                <h2 class="section-heading">Our Vision</h2>
-                <p class="vision-text">Blueberry is more than a robot; it's an autonomous mapping and rescue assistant
-                    designed to go where humans cannot. From initial exploration to advanced evolution, we are building
-                    the future of disaster response.</p>
-                <div class="evolution-graphic">
-                    <span class="evolution-text">From Exploration to Evolution</span>
-                    <svg class="evolution-line" width="200" height="20" viewBox="0 0 200 20">
-                        <path d="M0,10 L200,10" stroke="#00E5A8" stroke-width="2" fill="none" />
-                    </svg>
-                </div>
-            </div>
-        </section>
-
-        <!-- Core Capabilities & Roadmap -->
-        <section id="capabilities" class="section-padding">
-            <div class="split-layout">
-                <div class="capabilities-list">
-                    <h2 class="section-heading">Core Capabilities</h2>
-                    <ul class="feature-list">
-                        <li><strong>SLAM Mapping:</strong> Real-time simultaneous localization and mapping.</li>
-                        <li><strong>Cloud Connectivity:</strong> Instant data sync to command dashboards.</li>
-                        <li><strong>Gesture & Voice:</strong> Intuitive control interfaces for operators.</li>
-                        <li><strong>Modular Design:</strong> Adaptable hardware stages for evolving needs.</li>
-                    </ul>
-                </div>
-                <div class="roadmap-widget" id="roadmap-widget">
-                    <h2 class="section-heading">Roadmap</h2>
-                    <div class="roadmap-stage" data-stage="1">
-                        <div class="stage-header">
-                            <span class="stage-icon">1</span>
-                            <h3>Remote Rover</h3>
-                        </div>
-                        <div class="stage-content">
-                            <ul>
-                                <li>Basic teleoperation</li>
-                                <li>Video feed transmission</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="roadmap-stage" data-stage="2">
-                        <div class="stage-header">
-                            <span class="stage-icon">2</span>
-                            <h3>Autonomous AI</h3>
-                        </div>
-                        <div class="stage-content">
-                            <ul>
-                                <li>LIDAR / SLAM integration</li>
-                                <li>Path planning</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="roadmap-stage" data-stage="3">
-                        <div class="stage-header">
-                            <span class="stage-icon">3</span>
-                            <h3>BB-8 Transformation</h3>
-                        </div>
-                        <div class="stage-content">
-                            <ul>
-                                <li>Spherical rolling mechanism</li>
-                                <li>Self-balancing physics</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="roadmap-stage" data-stage="4">
-                        <div class="stage-header">
-                            <span class="stage-icon">4</span>
-                            <h3>Head Levitation</h3>
-                        </div>
-                        <div class="stage-content">
-                            <ul>
-                                <li>Magnetic stabilization</li>
-                                <li>Advanced sensor suite</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Hardware Overview -->
-        <section id="hardware" class="section-padding">
-            <h2 class="section-heading">Hardware Architecture</h2>
-            <div class="hardware-grid">
-                <div class="hw-card" data-modal="processing">
-                    <h4>Processing Units</h4>
-                    <p>Raspberry Pi 4 + ESP32</p>
-                </div>
-                <div class="hw-card" data-modal="mapping">
-                    <h4>Mapping & Ranging</h4>
-                    <p>LIDAR + Ultrasonic + VL53L0X</p>
-                </div>
-                <div class="hw-card" data-modal="control">
-                    <h4>Gesture Glove</h4>
-                    <p>IMU-based hand tracking</p>
-                </div>
-                <div class="hw-card" data-modal="safety">
-                    <h4>Feedback & Safety</h4>
-                    <p>Haptic feedback + Fail-safes</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Software & Architecture -->
-        <section id="software" class="section-padding">
-            <h2 class="section-heading">System Architecture</h2>
-            <div class="architecture-diagram">
-                <!-- Simple SVG Diagram Placeholder -->
-                <svg width="100%" height="200" viewBox="0 0 800 200">
-                    <g class="arch-node" transform="translate(50, 80)">
-                        <rect width="120" height="60" rx="5" fill="rgba(0, 229, 168, 0.1)" stroke="#00E5A8"
-                            stroke-width="2" />
-                        <text x="60" y="35" text-anchor="middle" fill="#E6EEF6">ESP32</text>
-                    </g>
-                    <path class="arch-arrow" d="M180,110 L240,110" stroke="#2EA6FF" stroke-width="2"
-                        marker-end="url(#arrowhead)" />
-
-                    <g class="arch-node" transform="translate(250, 80)">
-                        <rect width="120" height="60" rx="5" fill="rgba(46, 166, 255, 0.1)" stroke="#2EA6FF"
-                            stroke-width="2" />
-                        <text x="60" y="35" text-anchor="middle" fill="#E6EEF6">Raspberry Pi</text>
-                    </g>
-                    <path class="arch-arrow" d="M380,110 L440,110" stroke="#2EA6FF" stroke-width="2"
-                        marker-end="url(#arrowhead)" />
-
-                    <g class="arch-node" transform="translate(450, 80)">
-                        <rect width="120" height="60" rx="5" fill="rgba(255, 159, 28, 0.1)" stroke="#FF9F1C"
-                            stroke-width="2" />
-                        <text x="60" y="35" text-anchor="middle" fill="#E6EEF6">Cloud Dash</text>
-                    </g>
-
-                    <defs>
-                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
-                            <polygon points="0 0, 10 3.5, 0 7" fill="#2EA6FF" />
-                        </marker>
-                    </defs>
-                </svg>
-            </div>
-        </section>
-
-        <!-- Timeline -->
-        <section id="timeline" class="section-padding">
-            <h2 class="section-heading">Project Timeline</h2>
-            <div class="timeline-container">
-                <div class="timeline-bar">
-                    <div class="timeline-progress"></div>
-                </div>
-                <div class="timeline-points">
-                    <div class="t-point" data-week="1-2">
-                        <div class="dot"></div>
-                        <span class="label">Week 1-2</span>
-                    </div>
-                    <div class="t-point" data-week="3-4">
-                        <div class="dot"></div>
-                        <span class="label">Week 3-4</span>
-                    </div>
-                    <div class="t-point" data-week="5-6">
-                        <div class="dot"></div>
-                        <span class="label">Week 5-6</span>
-                    </div>
-                    <div class="t-point" data-week="Future">
-                        <div class="dot"></div>
-                        <span class="label">Future R&D</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Team -->
-        <section id="team" class="section-padding">
-            <h2 class="section-heading">The Team</h2>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="member-photo"></div>
-                    <h3>Lakshya Raj Malviya</h3>
-                    <p class="role">Lead Engineer</p>
-                </div>
-                <div class="team-card">
-                    <div class="member-photo"></div>
-                    <h3>Lakshya Mansharamani</h3>
-                    <p class="role">Software Architect</p>
-                </div>
-                <div class="team-card">
-                    <div class="member-photo"></div>
-                    <h3>Himang Sahu</h3>
-                    <p class="role">Hardware Specialist</p>
-                </div>
-                <div class="team-card">
-                    <div class="member-photo"></div>
-                    <h3>Kaushik Barnwal</h3>
-                    <p class="role">Systems Integrator</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Live Demo -->
-        <section id="demo" class="section-padding demo-section">
-            <h2 class="section-heading">Live Telemetry</h2>
-            <div class="demo-container">
-                <div class="map-placeholder" id="radar-map">
-                    <!-- Canvas for radar animation -->
-                    <canvas id="radarCanvas"></canvas>
-                    <div class="overlay-text">LIVE FEED: OFFLINE</div>
-                </div>
-                <div class="telemetry-data">
-                    <div class="data-row">
-                        <span>STATUS:</span> <span id="status-val" class="status-ok">ONLINE</span>
-                    </div>
-                    <div class="data-row">
-                        <span>BATTERY:</span> <span id="battery-val">87%</span>
-                    </div>
-                    <div class="data-row">
-                        <span>DISTANCE:</span> <span id="dist-val">-- cm</span>
-                    </div>
-                    <button class="btn btn-primary" id="connect-btn">Connect Stream</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Project Blueberry. From Exploration to Evolution.</p>
-            <div class="social-links">
-                <a href="#">GitHub</a>
-                <a href="#">Documentation</a>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="line">AUTONOMOUS</span>
+                <span class="line">RESILIENCE</span>
+            </h1>
+            <p class="hero-subtitle">Navigating the Unknown. Saving Lives.</p>
+            <p class="hero-summary">
+                Project Blueberry is an intelligent, self-reliant robotic system designed to navigate, map, and operate
+                in complex disaster zones during total blackouts. Where humans cannot go, Blueberry leads the way.
+            </p>
+            <div class="hero-cta-group">
+                <button class="btn btn-primary">Explore Mission</button>
+                <button class="btn btn-secondary">View Specs</button>
             </div>
         </div>
+        <div class="hero-visual">
+            <div id="hero-3d-container" style="width: 100%; height: 100%;"></div>
+        </div>
+    </section>
+
+    <!-- Vision & Problem Section -->
+    <section id="vision" class="section-padding">
+        <div class="container">
+            <h2 class="section-heading">The Challenge</h2>
+            <p class="text-block lead-text">
+                Disaster zones are chaotic, unstructured, and often devoid of communication infrastructure. Traditional
+                robotics fail when the lights go out and the signal dies.
+            </p>
+            <div class="card-grid">
+                <div class="glass-card">
+                    <div class="card-icon">🌑</div>
+                    <h3>Total Blackout</h3>
+                    <p>Operations in zero-visibility and zero-communication environments without reliance on GPS or
+                        external pilots.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="card-icon">🧩</div>
+                    <h3>Complex Terrain</h3>
+                    <p>Navigating unstable rubble, tight confined spaces, and unpredictable obstacles that baffle
+                        standard wheel-based rovers.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="card-icon">🧠</div>
+                    <h3>Cognitive Load</h3>
+                    <p>Reducing the mental strain on human responders by providing processed, actionable intelligence
+                        rather than raw data streams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evolution Stages -->
+    <section id="evolution" class="section-padding">
+        <div class="container">
+            <h2 class="section-heading">Evolutionary Roadmap</h2>
+            <div class="stages-container">
+                <div class="stage-card">
+                    <span class="stage-number">01</span>
+                    <span class="stage-subtitle">Foundation</span>
+                    <h3>The Crawler</h3>
+                    <ul>
+                        <li>Basic Mobility</li>
+                        <li>Proximity Sensing</li>
+                        <li>Manual Override</li>
+                    </ul>
+                </div>
+                <div class="stage-card">
+                    <span class="stage-number">02</span>
+                    <span class="stage-subtitle">Intelligence</span>
+                    <h3>The Mapper</h3>
+                    <ul>
+                        <li>LIDAR Integration</li>
+                        <li>SLAM Algorithms</li>
+                        <li>3D Environment Reconstruction</li>
+                    </ul>
+                </div>
+                <div class="stage-card">
+                    <span class="stage-number">03</span>
+                    <span class="stage-subtitle">Autonomy</span>
+                    <h3>The Pathfinder</h3>
+                    <ul>
+                        <li>Path Planning</li>
+                        <li>Obstacle Avoidance</li>
+                        <li>Autonomous Decision Making</li>
+                    </ul>
+                </div>
+                <div class="stage-card">
+                    <span class="stage-number">04</span>
+                    <span class="stage-subtitle">Symbiosis</span>
+                    <h3>The Guardian</h3>
+                    <ul>
+                        <li>Human-Robot Teaming</li>
+                        <li>Bio-Signal Analysis</li>
+                        <li>Swarm Coordination</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Architecture -->
+    <section id="tech" class="section-padding">
+        <div class="container">
+            <h2 class="section-heading">System Architecture</h2>
+            <div class="tech-grid">
+                <div class="tech-column">
+                    <h3>Hardware Core</h3>
+                    <ul class="tech-list">
+                        <li><strong>Chassis:</strong> Carbon-Fiber Reinforced Polymer</li>
+                        <li><strong>Drive:</strong> 4WD Independent Suspension</li>
+                        <li><strong>Sensors:</strong> LiDAR, Depth Cameras, IMU, Thermal</li>
+                        <li><strong>Compute:</strong> NVIDIA Jetson Orin Nano</li>
+                        <li><strong>Power:</strong> High-Density Li-Po with Solar Trickle</li>
+                    </ul>
+                </div>
+                <div class="tech-column">
+                    <h3>Software Stack</h3>
+                    <ul class="tech-list">
+                        <li><strong>OS:</strong> ROS 2 (Robot Operating System)</li>
+                        <li><strong>AI:</strong> TensorFlow / PyTorch for Object Detection</li>
+                        <li><strong>Mapping:</strong> OctoMap / RTAB-Map</li>
+                        <li><strong>Control:</strong> PID + Model Predictive Control</li>
+                        <li><strong>Interface:</strong> WebSockets + React Dashboard</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation & Telemetry -->
+    <section id="telemetry" class="section-padding">
+        <div class="container">
+            <h2 class="section-heading">Live Telemetry</h2>
+            <div class="split-layout">
+                <div class="radar-placeholder">
+                    <canvas id="radarCanvas"></canvas>
+                    <div class="overlay-text"
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: rgba(255,255,255,0.5); pointer-events: none;">
+                        OFFLINE</div>
+                </div>
+                <div class="control-panel">
+                    <div class="feature-block">
+                        <h3>Sensor Fusion</h3>
+                        <p>Real-time integration of LiDAR point clouds and thermal imaging to identify survivors in
+                            debris fields.</p>
+                    </div>
+                    <div class="telemetry-bar">
+                        <div class="stat-item">
+                            <span class="label">STATUS</span>
+                            <span id="status-val" class="value">STANDBY</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">BATTERY</span>
+                            <span id="battery-val" class="value">--%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">RANGE</span>
+                            <span id="dist-val" class="value">-- cm</span>
+                        </div>
+                        <button id="connect-btn" class="btn btn-primary btn-small">Connect Stream</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-heading">Mission Profiles</h2>
+            <div class="grid-3">
+                <div class="use-case-item">
+                    <h4>Urban Search & Rescue</h4>
+                    <p>Locating survivors in collapsed buildings where structural instability prevents human entry.</p>
+                </div>
+                <div class="use-case-item">
+                    <h4>Hazmat Reconnaissance</h4>
+                    <p>Mapping chemical or radioactive spills to establish safe zones for cleanup crews.</p>
+                </div>
+                <div class="use-case-item">
+                    <h4>Subterranean Mapping</h4>
+                    <p>Exploring mines, caves, or subway tunnels to assess structural integrity and air quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-heading">Project Timeline</h2>
+            <div class="timeline-simple">
+                <div class="t-item">
+                    <span class="t-time">Q1 2024</span>
+                    <span class="t-desc">Concept & Design</span>
+                </div>
+                <div class="t-item">
+                    <span class="t-time">Q3 2024</span>
+                    <span class="t-desc">Prototype Alpha</span>
+                </div>
+                <div class="t-item">
+                    <span class="t-time">Q1 2025</span>
+                    <span class="t-desc">Field Testing</span>
+                </div>
+                <div class="t-item">
+                    <span class="t-time">Q4 2025</span>
+                    <span class="t-desc">Deployment Ready</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="section-padding">
+        <div class="container">
+            <h2 class="section-heading">The Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Alex Chen</h3>
+                    <span class="role">Lead Robotics Engineer</span>
+                </div>
+                <div class="team-member">
+                    <h3>Sarah Jones</h3>
+                    <span class="role">AI & Computer Vision</span>
+                </div>
+                <div class="team-member">
+                    <h3>David Kim</h3>
+                    <span class="role">Embedded Systems</span>
+                </div>
+                <div class="team-member">
+                    <h3>Elena Rodriguez</h3>
+                    <span class="role">Mechanical Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer
+        style="text-align: center; padding: 4rem 0; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 0.9rem;">
+        <p>&copy; 2025 Project Blueberry. All Systems Nominal.</p>
     </footer>
+
 </body>
 
 </html>
