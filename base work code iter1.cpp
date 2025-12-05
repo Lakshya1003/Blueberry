@@ -1,6 +1,3 @@
-// NYX DASHBOARD v2 (Stable Build)
-// ESP32 + Dual MG995 Continuous Rotation Servos + VL53L0X Distance Sensor
-// Web Dashboard on AP mode (default SSID=lakshya, PASS=88888888)
 
 #include <WiFi.h>
 #include <WebServer.h>
@@ -11,9 +8,6 @@
 const bool USE_STA = false; // false = AP mode
 const char *AP_SSID = "Ryzen";
 const char *AP_PASS = "00000000";
-
-const char *STA_SSID = "null";
-const char *STA_PASS = "YOUR_PASS";
 
 // Pins
 const int servoL_pin = 18;
